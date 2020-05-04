@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '8'
+- '10'
+- '12'
+- '14'
+- stable
+branches:
+  only:
+  - master
+script:
+- npm test
+deploy:
+  provider: npm
+  email: christopher@holmok.com
+  api_key:
+    secure: 6BrkhCQ4WbeqKL5Pue1mSYS1H5Qj4Q3NrvkYMGhezBc3mQjZT4xRi9zoVuF+2DoO/86C7FTF1ROwYwTOhyP++9pPPmv6Bpm8sgk2NlpvrY1uGDBGK4PAw41wN3wEvQZbNuUZpZMLTxtGDJc1Shv3/qbiqjlMjkcCPVEfC0hdVGq05OIjY+3yK3mJ1ej9IJT/0AOJ36JPdaGEwXiKtdBWb5He+sS3BSEfRUZQHhjHETuKPcAy9yKVS0If19mCLzJA+hp4keCzdKv4FJjufXnpluxB6Dmp6VfHsv8Y/7eqi3+4YMzMR4eb9FvsXrpfIDQ0uSsQF4Yhuy0PeMjBRfA9RiBMOeu2/+e4JkgLnLQbSRkr8kBdOSo0AuoxJuTBvoz87pwk4TOwcqsL0AavkkQNBeVzJ77HW9WTXX/sjx451j5VI7QMIZO0rEaJn1mE9eU4OIykKAQNBfipKX4Qh50Ezt6qcEsq85Lrsu7c+0tTP2npuqPKV7QYhqWEF4X+c2Y6WqTYeOUW3v96ZARXx3n0Whiuisgz0kRYObk1qNq084KjubMeFSR+f1SkZNLKhLrdCeNb35AsXgAaQGI7gYFLd7Lw87Jmq1yIx8lfTD0QiXAxf8YFZe+NCqY7eW9JlG/W7PIVqpWKCsYie8dUzSQBaO91TxyQ9szb7Py06UpV/Ns=

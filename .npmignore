@@ -4,3 +4,4 @@ coverage
 tests
 examples
 screen-shot.jpg
+.travis.yml
