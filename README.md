@@ -1,5 +1,8 @@
 # pino-tiny
 
+[![Build Status](https://travis-ci.com/holmok/pino-tiny.svg?branch=master)](https://travis-ci.com/github/holmok/pino-tiny/builds/)
+
+
 a tiny little log formatter for [pino](https://github.com/pinojs/pino).  
 
 yeah, i know, [pino-colada](https://github.com/lrlna/pino-colada)...  
