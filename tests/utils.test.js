@@ -30,13 +30,6 @@ Tape('parse, not JSON', (t) => {
   t.end()
 })
 
-Tape('shutdown', (t) => {
-  const ctx = pre()
-  ctx.utils.shutdown('test', false)
-  post(ctx)
-  t.end()
-})
-
 Tape('noop', (t) => {
   const ctx = pre()
   const expected = { test: true }

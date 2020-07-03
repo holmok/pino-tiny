@@ -5,3 +5,4 @@ tests
 examples
 screen-shot.jpg
 .travis.yml
+.DS_Store

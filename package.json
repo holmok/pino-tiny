@@ -1,6 +1,6 @@
 {
   "name": "pino-tiny",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "a very minimalistic output for pino logger",
   "main": "lib/index.js",
   "bin": {
