@@ -11,7 +11,7 @@ yeah, i know, [pino-colada](https://github.com/lrlna/pino-colada)...
 
 i made pino-tiny! 
 
-![screen-shot](./screen-shot-v1.1.jpg)
+![screen-shot](./screen-shot-v1.1.png)
 
 ## using it
 
