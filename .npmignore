@@ -3,6 +3,6 @@ node_modules
 coverage
 tests
 examples
-screen-shot.jpg
+screen-shot-v1.1.png
 .travis.yml
 .DS_Store
