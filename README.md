@@ -11,7 +11,7 @@ yeah, i know, [pino-colada](https://github.com/lrlna/pino-colada)...
 
 i made pino-tiny! 
 
-![screen-shot](./screen-shot.jpg)
+![screen-shot](./screen-shot-v1.1.jpg)
 
 ## using it
 
@@ -77,4 +77,6 @@ start(filter)
 
 more ideas in [examples](./examples)
 
+### New in v1.1
 
+* timings added to web logs.

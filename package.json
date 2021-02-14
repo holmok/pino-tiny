@@ -1,7 +1,7 @@
 {
   "name": "pino-tiny",
-  "version": "1.0.0",
-  "description": "a very minimalistic output for pino logger",
+  "version": "1.1.0",
+  "description": "a very minimalist output for pino logger",
   "main": "lib/index.js",
   "bin": {
     "pino-tiny": "./lib/index.js"
@@ -19,7 +19,7 @@
   },
   "keywords": [
     "pino",
-    "minimalistic",
+    "minimalist",
     "log",
     "logger",
     "logging"
