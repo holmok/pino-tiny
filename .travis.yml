@@ -1,15 +1,16 @@
 language: node_js
 node_js:
-- '8'
 - '10'
 - '12'
 - '14'
+- '15'
 - stable
 branches:
   only:
   - master
 script:
-- npm test
+- yarn build
+- yarn test
 deploy:
   provider: npm
   email: christopher@holmok.com
