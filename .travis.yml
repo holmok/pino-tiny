@@ -9,8 +9,8 @@ branches:
   only:
   - master
 script:
-- npm build
-- npm test
+- yarn build
+- yarn test
 deploy:
   provider: npm
   email: christopher@holmok.com
