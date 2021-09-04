@@ -1,8 +1,4 @@
-node_modules
-.nyc_output
-coverage
-tests
-examples
-screen-shot-v1.1.png
+node_modules/
+pino-tiny-output.png
 .travis.yml
 .DS_Store
