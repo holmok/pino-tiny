@@ -1,6 +1,6 @@
 {
   "name": "pino-tiny",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "dist/index.js",
   "bin": {
     "pino-tiny": "dist/index.js"
@@ -23,19 +23,21 @@
   },
   "homepage": "https://github.com/holmok/pino-tiny#readme",
   "dependencies": {
-    "@types/dateformat": "^3.0.1",
     "chalk": "^4.1.2",
     "dateformat": "^4.5.1",
     "pump": "^3.0.0",
     "split2": "^3.2.2",
-    "through2": "^4.0.2"
+    "strip-ansi": "^6.0.0",
+    "through2": "^4.0.2",
+    "yargs": "^17.1.1"
   },
   "devDependencies": {
-    "@types/chalk": "^2.2.0",
+    "@types/dateformat": "^3.0.1",
     "@types/node": "^16.7.10",
     "@types/pump": "^1.1.1",
     "@types/split2": "^3.2.1",
     "@types/through2": "^2.0.36",
+    "@types/yargs": "^17.0.2",
     "@typescript-eslint/parser": "^4.30.0",
     "eslint": "^7.32.0",
     "ts-standard": "^10.0.0",

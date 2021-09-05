@@ -26,6 +26,21 @@ yarn add --dev pino-tiny
 $ node index.js | pino-tiny
 ```
 
+### CLI Arguments
+
+Now you can tweak the output a bit with command line arguments
+```
+Options:
+      --help            Show help                                      
+      --version         Show version number                            
+  -i, --hide-icons      Hide level emoji icons.       
+  -l, --hide-letters    Hide level letters.           
+  -t, --hide-timestamp  Hide the timestamp.           
+  -c, --hide-colors     Remove ansi colors from output.
+  -w, --hide-web        Hide web stats.               
+  -m, --msg-key         The key to use for message from the JSON log data.                                               
+```
+
 ...or put it in your `package.json` file...
 
 ```JSON
@@ -47,7 +62,7 @@ const { PinoTinyPrettifier } = require('pino-pretty')
 const Pino = require('pino')
 
 const logger = new Pino({
-  prettifier: PinoTinyPrettifier(),
+  prettifier: PinoTinyPrettifier(/*{[options]}*/),
   prettyPrint: true
 })
 
@@ -57,6 +72,69 @@ logger.info('info message')
 logger.warn('warn message')
 logger.error('error message')
 logger.fatal('fatal message')
+```
+
+### Prettifier Options
+
+The prettifier has the same options as the cli. Plus a filter function.
+
+```typescript
+PinoTinyOptions {
+  hideIcons?: boolean
+  hideLetters?: boolean
+  hideTimestamp?: boolean
+  hideColors?: boolean
+  hideWeb?: boolean
+  msgKey?: string
+  filter?: (data: any) => any | undefined
+}
+```
+
+The `filter` option allows you to filter and process the log data.  So you can do something like
+
+```javascript
+// remove ansi colors and remove messages that have secrets.
+const logger = new Pino({
+  prettifier: PinoTinyPrettifier(
+    {
+      hideColor: true,
+      filter:(data) => {
+        if (data.hasSecret) {
+          return { ...data, msg:'*** secret ***' }
+        } else {
+          return data
+        }
+      }
+    }
+  ),
+  prettyPrint: true
+})
+```
+
+## extensible-ish
+
+pino-tiny runs like a process you pipe the output of your application into and it makes nice output. it also exports a function `Run` that takes the filter option function as a parameter.
+
+this allows you to control if a log entry gets printed, and you can mangle the output (in the msg property of the log). here is a ridiculous example:
+
+```javascript
+const { Run } = require('pino-tiny')
+
+function filter (data) {
+  if(data.msg.indexOf('happy') >= 0) { 
+      // nothing happy gets out.
+      return false; 
+  } 
+  else {
+      // prepend msg with woah.
+      return {
+          ...data, 
+          msg: `[woah!] ${data.msg}`
+      } 
+  } 
+}
+//start the logger
+Run(filter)
 ```
 
 ## what does pino-tiny do?
@@ -76,3 +154,10 @@ logger.fatal('fatal message')
 * handle non-pino json
 * emojis! 🔎 🪲 ℹ️ ⚠️ 🔥 💣
 * src is now in typescript
+
+## New in v2.1
+
+* added prettifier options
+* added prettifier options as cli args
+* added back the filter method in options
+* added back the extensibility
