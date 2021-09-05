@@ -50,7 +50,6 @@ export function prettifier (options: PinoTinyOptions): any {
 export function parse (line: string): any {
   try {
     const output = JSON.parse(line)
-    console.log(line)
     return output
   } catch (err) {
     return {
@@ -89,7 +88,7 @@ export function format (data: any, options: PinoTinyOptions = {}): string | unde
     parts.push(Chalk.dim(`${data.req.method as string} ${data.req.url as string} (${data.res.statusCode as string}${data.responseTime != null ? `/${(data.responseTime as number).toLocaleString()}ms` : ''})`))
   }
 
-  const output = `${parts.join(' ')}\n`
+  const output = `${parts.join('-')}\n`
   return options.hideColors ?? false ? StripAnsi(output) : output
 }
 
