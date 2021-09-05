@@ -42,7 +42,6 @@ exports.prettifier = prettifier;
 function parse(line) {
     try {
         var output = JSON.parse(line);
-        console.log(line);
         return output;
     }
     catch (err) {
@@ -79,7 +78,7 @@ function format(data, options) {
     if (!((_e = options.hideTimestamp) !== null && _e !== void 0 ? _e : false) && data.res != null && data.req != null) {
         parts.push(chalk_1.default.dim(data.req.method + " " + data.req.url + " (" + data.res.statusCode + (data.responseTime != null ? "/" + data.responseTime.toLocaleString() + "ms" : '') + ")"));
     }
-    var output = parts.join('-') + "\n";
+    var output = parts.join(' ') + "\n";
     return ((_f = options.hideColors) !== null && _f !== void 0 ? _f : false) ? (0, strip_ansi_1.default)(output) : output;
 }
 exports.format = format;

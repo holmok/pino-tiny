@@ -88,7 +88,7 @@ export function format (data: any, options: PinoTinyOptions = {}): string | unde
     parts.push(Chalk.dim(`${data.req.method as string} ${data.req.url as string} (${data.res.statusCode as string}${data.responseTime != null ? `/${(data.responseTime as number).toLocaleString()}ms` : ''})`))
   }
 
-  const output = `${parts.join('-')}\n`
+  const output = `${parts.join(' ')}\n`
   return options.hideColors ?? false ? StripAnsi(output) : output
 }
 
