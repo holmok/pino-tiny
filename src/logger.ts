@@ -79,7 +79,7 @@ export function format (data: any, options: PinoTinyOptions = {}): string | unde
   }
 
   if (!(options.hideTimestamp ?? false)) {
-    parts.push(Chalk.dim(DateFormat(data.time, 'HH:mm:ss.l')))
+    parts.push(Chalk.dim(DateFormat(data.time, 'HH:MM:ss.l')))
   }
 
   parts.push(data.msg)

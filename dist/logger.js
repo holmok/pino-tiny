@@ -72,7 +72,7 @@ function format(data, options) {
         parts.push(level.color(prefix.join(' ')));
     }
     if (!((_d = options.hideTimestamp) !== null && _d !== void 0 ? _d : false)) {
-        parts.push(chalk_1.default.dim((0, dateformat_1.default)(data.time, 'HH:mm:ss.l')));
+        parts.push(chalk_1.default.dim((0, dateformat_1.default)(data.time, 'HH:MM:ss.l')));
     }
     parts.push(data.msg);
     if (!((_e = options.hideTimestamp) !== null && _e !== void 0 ? _e : false) && data.res != null && data.req != null) {

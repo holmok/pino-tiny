@@ -1,6 +1,6 @@
 {
   "name": "pino-tiny",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "main": "dist/index.js",
   "bin": {
     "pino-tiny": "dist/index.js"
