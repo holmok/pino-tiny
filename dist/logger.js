@@ -49,13 +49,14 @@ function parse(line) {
             level: 30,
             time: Date.now(),
             tags: ['info'],
-            msg: line
+            msg: line,
+            message: line
         };
     }
 }
 exports.parse = parse;
 function format(data, options) {
-    var _a, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d, _e, _f, _g;
     if (options === void 0) { options = {}; }
     if (options.filter != null) {
         data = options.filter(data);
@@ -74,12 +75,12 @@ function format(data, options) {
     if (!((_d = options.hideTimestamp) !== null && _d !== void 0 ? _d : false)) {
         parts.push(chalk_1.default.dim((0, dateformat_1.default)(data.time, 'HH:MM:ss.l')));
     }
-    parts.push(data.msg);
-    if (!((_e = options.hideTimestamp) !== null && _e !== void 0 ? _e : false) && data.res != null && data.req != null) {
-        parts.push(chalk_1.default.dim(data.req.method + " " + data.req.url + " (" + data.res.statusCode + (data.responseTime != null ? "/" + data.responseTime.toLocaleString() + "ms" : '') + ")"));
+    parts.push((_e = data.msg) !== null && _e !== void 0 ? _e : data.message);
+    if (!((_f = options.hideTimestamp) !== null && _f !== void 0 ? _f : false) && data.res != null && data.req != null) {
+        parts.push(chalk_1.default.dim("".concat(data.req.method, " ").concat(data.req.url, " (").concat(data.res.statusCode).concat(data.responseTime != null ? "/".concat(data.responseTime.toLocaleString(), "ms") : '', ")")));
     }
-    var output = parts.join(' ') + "\n";
-    return ((_f = options.hideColors) !== null && _f !== void 0 ? _f : false) ? (0, strip_ansi_1.default)(output) : output;
+    var output = "".concat(parts.join(' '), "\n");
+    return ((_g = options.hideColors) !== null && _g !== void 0 ? _g : false) ? (0, strip_ansi_1.default)(output) : output;
 }
 exports.format = format;
 function callback(options) {
@@ -88,7 +89,7 @@ function callback(options) {
             cb(null, format(input, options));
         }
         catch (err) {
-            cb(new Error("Unable to process log: \"" + JSON.stringify(input) + "\". error: " + err.message));
+            cb(new Error("Unable to process log: \"".concat(JSON.stringify(input), "\". error: ").concat(err.message)));
         }
     };
 }

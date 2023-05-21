@@ -56,7 +56,8 @@ export function parse (line: string): any {
       level: 30,
       time: Date.now(),
       tags: ['info'],
-      msg: line
+      msg: line,
+      message: line
     }
   }
 }
@@ -82,7 +83,7 @@ export function format (data: any, options: PinoTinyOptions = {}): string | unde
     parts.push(Chalk.dim(DateFormat(data.time, 'HH:MM:ss.l')))
   }
 
-  parts.push(data.msg)
+  parts.push(data.msg ?? data.message)
 
   if (!(options.hideTimestamp ?? false) && data.res != null && data.req != null) {
     parts.push(Chalk.dim(`${data.req.method as string} ${data.req.url as string} (${data.res.statusCode as string}${data.responseTime != null ? `/${(data.responseTime as number).toLocaleString()}ms` : ''})`))

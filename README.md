@@ -161,3 +161,8 @@ Run(filter)
 * added prettifier options as cli args
 * added back the filter method in options
 * added back the extensibility
+
+## New in v2.2
+
+* dep version bumps
+* support for `msg` and `message` in logger
